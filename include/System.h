@@ -179,6 +179,11 @@ public:
 
     // For debugging
     double GetTimeFromIMUInit();
+    bool IsImuInitialized() { return mpAtlas->isImuInitialized(); }
+    bool IsImuFullyInitialized() {
+        Map* current_map = mpAtlas->GetCurrentMap();
+        return current_map && current_map->GetIniertialBA2();
+    }
     bool isLost();
     bool isFinished();
 
